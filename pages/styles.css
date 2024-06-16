@@ -1,0 +1,341 @@
+html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Reset de estilos para garantir consistência em diferentes navegadores */
+  body,
+  h1,
+  h2,
+  p,
+  ul,
+  ol,
+  li,
+  figure,
+  table,
+  th,
+  td {
+    margin: 0;
+    padding: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+  
+  header,
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem; /* Uso de rem para padding */
+    text-align: center;
+  }
+  
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem; /* Uso de rem para espaçamento */
+  }
+  
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem; /* Uso de rem para espaçamento */
+  }
+  
+  footer a {
+    color: #fff; /* Cor branca */
+    text-decoration: none; /* Remove o sublinhado */
+  }
+  
+  footer a:hover {
+    text-decoration: underline; /* Sublinhado ao passar o mouse */
+  }
+  
+  footer a:active {
+    text-decoration: none; /* Remove o sublinhado quando clicado */
+  }
+  
+  main {
+    padding: 1rem; /* Uso de rem para padding */
+  }
+  
+  main form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem; /* Uso de rem para espaçamento */
+    align-items: center;
+    width: 100%;
+    max-width: 25rem; /* Uso de rem para largura máxima */
+    margin: 0 auto 1.25rem auto; /* Uso de rem para margem */
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.5rem; /* Uso de rem para padding */
+    font-size: 1rem; /* Uso de rem para tamanho de fonte */
+    border: 1px solid #ccc; /* Adicionado borda */
+    border-radius: 0.25rem; /* Bordas arredondadas */
+  }
+  
+  input::placeholder,
+  textarea::placeholder {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  button {
+    background-color: #0074d9;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem; /* Uso de rem para padding */
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  /* Adjust the filter container styling */
+  #filterContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem; /* Uso de rem para espaçamento */
+  }
+  
+  #filterContainer input {
+    padding: 0.5rem; /* Uso de rem para padding */
+    font-size: 1rem; /* Uso de rem para tamanho de fonte */
+    width: 100%;
+    max-width: 25rem; /* Uso de rem para largura máxima */
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    max-width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Duas colunas responsivas */
+    gap: 1.25rem; /* Uso de rem para espaçamento */
+  }
+  
+  li {
+    margin: 0.5rem 0; /* Uso de rem para margem */
+    padding: 1.25rem; /* Uso de rem para padding */
+    border: solid 1px #ccc;
+    position: relative;
+    padding-right: 5rem; /* Ajustado para acomodar os dois botões */
+  }
+  
+  li p {
+    white-space: pre-wrap;
+    margin-top: 0.625rem; /* Uso de rem para margem superior */
+  }
+  
+  .edit-btn,
+  .delete-btn {
+    position: absolute;
+    top: 0.625rem; /* Uso de rem para margem superior */
+    background-color: #676767;
+    border: none;
+    border-radius: 0.3125rem; /* Bordas arredondadas */
+    padding: 0.3125rem; /* Uso de rem para padding */
+    cursor: pointer;
+    color: white;
+  }
+  
+  .edit-btn {
+    right: 2.5rem; /* Ajustado para dar espaço ao botão de exclusão */
+  }
+  
+  .delete-btn {
+    right: 0.625rem; /* Uso de rem para margem direita */
+  }
+  
+  dialog {
+    border: none;
+    border-radius: 0.5rem; /* Bordas arredondadas */
+    padding: 1.25rem; /* Uso de rem para padding */
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+  }
+  
+  dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem; /* Uso de rem para espaçamento */
+  }
+  
+  dialog input,
+  dialog textarea {
+    width: 100%;
+    padding: 0.625rem; /* Uso de rem para padding */
+    font-size: 1rem; /* Uso de rem para tamanho de fonte */
+    outline: none;
+    border: 1px solid #ccc; /* Adicionado borda */
+    border-radius: 0.25rem; /* Bordas arredondadas */
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 0.625rem; /* Uso de rem para espaçamento */
+  }
+  
+  dialog button {
+    background-color: #0074d9;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem; /* Uso de rem para padding */
+    cursor: pointer;
+    border-radius: 7px;
+  }
+  
+  dialog button[type="button"] {
+    background-color: #ccc;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 1024px) {
+    ul {
+      grid-template-columns: 1fr; /* Uma coluna para telas menores que 1024px */
+    }
+  
+    li {
+      padding: 0.625rem; /* Uso de rem para padding */
+      padding-right: 3.75rem; /* Ajustado para acomodar os botões em telas menores */
+    }
+  
+    .edit-btn {
+      right: 1.875rem; /* Ajustado para dar espaço ao botão de exclusão */
+    }
+  
+    .delete-btn {
+      right: 0.625rem; /* Uso de rem para margem direita */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    header,
+    footer {
+      padding: 0.625rem; /* Uso de rem para padding */
+    }
+  
+    header {
+      gap: 1.25rem; /* Uso de rem para espaçamento */
+    }
+  
+    footer {
+      gap: 1.25rem; /* Uso de rem para espaçamento */
+    }
+  
+    main form,
+    #filterContainer input {
+      width: 90%;
+    }
+  
+    #filterContainer {
+      flex-direction: column;
+      gap: 0.625rem; /* Uso de rem para espaçamento */
+    }
+  
+    #filterContainer input,
+    #filterContainer button {
+      width: 100%;
+      margin: 0.3125rem 0; /* Uso de rem para margem */
+    }
+  
+    ul {
+      padding: 0 0.625rem; /* Uso de rem para padding */
+      grid-template-columns: 1fr; /* Ajuste para telas menores */
+    }
+  
+    li {
+      padding: 0.625rem; /* Uso de rem para padding */
+      padding-right: 3.75rem; /* Ajustado para acomodar os botões em telas menores */
+    }
+  
+    .edit-btn {
+      right: 1.875rem; /* Ajustado para dar espaço ao botão de exclusão */
+    }
+  
+    .delete-btn {
+      right: 0.625rem; /* Uso de rem para margem direita */
+    }
+  
+    dialog {
+      width: 90%;
+      max-width: 31.25rem; /* Uso de rem para largura máxima */
+    }
+  
+    dialog input,
+    dialog textarea {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header,
+    footer {
+      padding: 0.625rem; /* Uso de rem para padding */
+    }
+  
+    header {
+      gap: 1.25rem; /* Uso de rem para espaçamento */
+    }
+  
+    footer {
+      gap: 1.25rem; /* Uso de rem para espaçamento */
+    }
+  
+    main {
+      padding: 0.625rem; /* Uso de rem para padding */
+    }
+  
+    main form,
+    #filterContainer input {
+      width: 100%;
+    }
+  
+    ul {
+      padding: 0 0.3125rem; /* Uso de rem para padding */
+      grid-template-columns: 1fr; /* Coluna única em telas muito pequenas */
+    }
+  
+    li {
+      padding: 0.625rem; /* Uso de rem para padding */
+      padding-right: 3.125rem; /* Ajustado para acomodar os botões em telas menores */
+    }
+  
+    .edit-btn {
+      right: 1.5625rem; /* Ajustado para dar espaço ao botão de exclusão */
+    }
+  
+    .delete-btn {
+      right: 0.3125rem; /* Uso de rem para margem direita */
+    }
+  
+    dialog {
+      width: 100%;
+      max-width: 25rem; /* Uso de rem para largura máxima */
+    }
+  
+    dialog input,
+    dialog textarea {
+      width: 100%;
+    }
+  }
